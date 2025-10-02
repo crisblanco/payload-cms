@@ -32,6 +32,7 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
+  graphQL: { disablePlaygroundInProduction: true },
   db: sqliteD1Adapter({ binding: cloudflare.env.D1 }),
   plugins: [
     payloadCloudPlugin(),
@@ -52,7 +53,3 @@ function getCloudflareContextFromWrangler(): Promise<CloudflareContext> {
   )
 }
 
-export default buildConfig({
-  // ...
-  graphQL: { disablePlaygroundInProduction: true },
-})
