@@ -51,3 +51,8 @@ function getCloudflareContextFromWrangler(): Promise<CloudflareContext> {
     } satisfies GetPlatformProxyOptions),
   )
 }
+
+export default buildConfig({
+  // ...
+  graphQL: { disablePlaygroundInProduction: true },
+})
